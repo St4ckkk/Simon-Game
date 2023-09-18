@@ -38,7 +38,7 @@ function animatePress(currentColor) {
     }, 100);
 }
 
-$(".btn").click(function () { 
+$(".btn").on("click touchstart", function () {
     let userChosenColor = $(this).attr("id");
     userClickedPattern.push(userChosenColor); // Add the clicked color to the user's pattern
     $("#" + userChosenColor).fadeOut(100).fadeIn(100); // Show and hide the button with animation
@@ -49,8 +49,9 @@ $(".btn").click(function () {
     playSound(userChosenColor); // Play the corresponding sound
     level++; // Increase the level
     updateLevel(); // Update the displayed level
-    checkAnswer(userClickedPattern.length-1); // Check if the user's pattern matches the game pattern
+    checkAnswer(userClickedPattern.length - 1); // Check if the user's pattern matches the game pattern
 });
+
 
 function checkAnswer(currentLevel) {
     if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
@@ -88,7 +89,7 @@ function startOver() {
     updateScore(); // Update the displayed score
 }
 
-$(document).keydown(function (event) {
+$(document).on("keydown touchstart", function (event) {
     if (!started) {
         updateLevel(); // Update the displayed level
         started = true; // Start the game
