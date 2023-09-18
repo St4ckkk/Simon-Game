@@ -2,19 +2,20 @@ body {
   text-align: center;
   background-color: #011f3f;
   overflow-x: hidden;
+  margin: 0; /* Remove default margin */
 }
 
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
-  margin: 5%;
+  margin: 5% auto; /* Center the title */
   color: #fef2bf;
 }
 
 .container {
   display: block;
-  width: 50%;
-  margin: auto;
+  max-width: 90%; /* Adjust the maximum width for responsiveness */
+  margin: 0 auto; /* Center the container */
 }
 
 .footer {
@@ -27,6 +28,7 @@ body {
   font-size: 14px;
   font-family: 'Press Start 2P', cursive;
 }
+
 span {
   color: white;
 }
@@ -34,8 +36,8 @@ span {
 .btn {
   margin: 10px;
   display: inline-block;
-  height: 100px;
-  width: 100px;
+  height: 100px; /* Reduce button size for mobile */
+  width: 100px; /* Reduce button size for mobile */
   border: 5px solid black;
   border-radius: 50%;
   background-image: radial-gradient(
@@ -53,11 +55,14 @@ span {
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
+  max-width: 600px; /* Adjust the maximum width for responsiveness */
+  width: 90%;
+  height: 260px; /* Default height */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: block; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-wrap: wrap; /* Enable wrapping for smaller screens */
 }
 
 .game-over {
@@ -90,7 +95,7 @@ span {
   text-align: center;
   margin-top: 20px;
   font-family: 'Press Start 2P', cursive;
-  font-size: 18px;
+  font-size: 16px; /* Reduce font size for mobile */
   color: white;
 }
 
@@ -117,8 +122,28 @@ span {
 }
 
 @media (max-width: 768px) {
+  .btn {
+    height: 100px; /* Further reduce button size for smaller screens */
+    width: 100px; /* Further reduce button size for smaller screens */
+  }
+
+  .btn-container {
+    height: 270px;
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  #score-container {
+    font-size: 14px; /* Further reduce font size for smaller screens */
+  }
+
   .start-button {
     display: block;
     width: 50%;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-container {
+    height: 150px; /* Adjust the height for even smaller screens */
   }
 }

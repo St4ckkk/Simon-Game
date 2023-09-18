@@ -84,7 +84,7 @@ function checkAnswer(currentLevel) {
 }
 
 // Add a click event listener for the "Start" button for mobile devices
-$("#start-button").on("click touchend", function () {
+$("#start-button").on("click", function () {
   if (!started) {
     started = true; // Start the game
     updateLevel(); // Update the displayed level
