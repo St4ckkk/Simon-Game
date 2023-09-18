@@ -89,6 +89,28 @@ function startOver() {
     updateScore(); // Update the displayed score
 }
 
+function startGame() {
+    if (!started) {
+        updateLevel(); // Update the displayed level
+        started = true; // Start the game
+        updateScore(); // Initialize the displayed scores
+        nextSequence(); // Start the game by generating the first pattern
+    } else {
+        // If the game is already started and it's over, restart the game
+        startOver();
+        updateLevel(); // Update the displayed level
+        started = true; // Start the game
+        updateScore(); // Initialize the displayed scores
+        nextSequence(); // Start the game by generating the first pattern
+    }
+}
+
+$(document).on("keydown touchstart", startGame);
+
+// For mobile devices, use touchend to start the game when the user taps the screen
+$(document).on("touchend", startGame);
+
+
 $(document).on("keydown touchstart", function (event) {
     if (!started) {
         updateLevel(); // Update the displayed level
